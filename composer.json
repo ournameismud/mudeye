@@ -1,0 +1,43 @@
+{
+    "name": "ournameismud/mud-eye",
+    "description": "Mud SEO plugin for Craft 3",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "mud eye"
+    ],
+    "support": {
+        "docs": "https://github.com/ournameismud/mud-eye/blob/master/README.md",
+        "issues": "https://github.com/ournameismud/mud-eye/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "@cole007",
+            "homepage": "http://ournameismud.co.uk/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "ournameismud\\mudeye\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Mud Eye",
+        "handle": "mud-eye",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/ournameismud/mud-eye/master/CHANGELOG.md",
+        "components": {
+            "mudEyeService": "ournameismud\\mudeye\\services\\MudEyeService"
+        },
+        "class": "ournameismud\\mudeye\\MudEye"
+    }
+}

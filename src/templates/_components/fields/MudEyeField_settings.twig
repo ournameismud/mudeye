@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Mud Eye plugin for Craft CMS
+ *
+ * MudEyeField Field Settings
+ *
+ * @author    @cole007
+ * @copyright Copyright (c) 2018 @cole007
+ * @link      http://ournameismud.co.uk/
+ * @package   MudEye
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("ournameismud\\mudeye\\assetbundles\\mudeye\\MudEyeAsset") %}
+
+{{ forms.textField({
+    label: 'Some Attribute',
+    instructions: 'Enter some attribute here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: field['someAttribute']})
+}}
