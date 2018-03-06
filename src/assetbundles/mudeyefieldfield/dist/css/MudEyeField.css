@@ -9,3 +9,12 @@
  * @package   MudEye
  * @since     1.0.0
  */
+
+ .field .input .heading {
+ 	/*position: rel;ative*/
+ }
+ .field .input .heading small {
+ 	color: grey;
+ 	float: right;
+ 	font-size: 0.8em;
+ }

@@ -15,10 +15,38 @@
 
 {% import "_includes/forms" as forms %}
 
-{{ forms.textField({
-        label: 'Some Field',
-        instructions: 'Enter some text here.',
-        id: name,
-        name: name,
-        value: value})
-}}
+{% do view.registerAssetBundle("ournameismud\\mudeye\\assetbundles\\mudeyefieldfield\\MudEyeFieldFieldAsset") %}
+
+{% if  field.metaTitle %}
+	{{ forms.textField({
+	    label: 'Meta Title',
+	    id: id ~ 'seoTitle',
+	    class: 'nicetext',
+	    name: name ~ '[seoTitle]',
+	    value: value.seoTitle is defined ? value.seoTitle,
+	    required: false,
+	}) }}
+{% endif %}
+
+{% if  field.metaDesc %}
+	{{ forms.textareaField({
+	    label: 'Meta Description',
+	    id: id ~ 'seoDesc',
+	    class: 'nicetext',
+	    name: name ~ '[seoDesc]',
+	    value: value.seoDesc is defined ? value.seoDesc,
+	    required: false,
+	}) }}
+{% endif %}
+
+{% if  field.metaRobots %}
+	{{ forms.checkboxField({
+	    label: 'Disable page in robots.txt',
+	    id: id ~ 'seoRobot',
+	    class: 'nicetext',
+	    name: name ~ '[seoRobot]',
+	    value: 1,
+	    checked: value.seoRobot is defined ? true: false,
+	    required: false,
+	}) }}
+{% endif %}

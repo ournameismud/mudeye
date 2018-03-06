@@ -33,7 +33,9 @@ class MudEyeField extends Field
     /**
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $metaTitle;
+    public $metaDesc;
+    public $metaRobots;
 
     // Static Methods
     // =========================================================================
@@ -43,7 +45,7 @@ class MudEyeField extends Field
      */
     public static function displayName(): string
     {
-        return Craft::t('mud-eye', 'MudEyeField');
+        return Craft::t('mud-eye', 'Mud Eye (SEO)');
     }
 
     // Public Methods
@@ -56,8 +58,9 @@ class MudEyeField extends Field
     {
         $rules = parent::rules();
         $rules = array_merge($rules, [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
+            ['metaTitle', 'boolean'],
+            ['metaDesc', 'boolean'],
+            ['metaRobots', 'boolean'],
         ]);
         return $rules;
     }
@@ -127,7 +130,7 @@ class MudEyeField extends Field
             'mud-eye/_components/fields/MudEyeField_input',
             [
                 'name' => $this->handle,
-                'value' => $value,
+                'value' => json_decode($value),
                 'field' => $this,
                 'id' => $id,
                 'namespacedId' => $namespacedId,

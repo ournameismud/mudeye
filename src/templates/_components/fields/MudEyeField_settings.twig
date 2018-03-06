@@ -17,10 +17,26 @@
 
 {% do view.registerAssetBundle("ournameismud\\mudeye\\assetbundles\\mudeye\\MudEyeAsset") %}
 
-{{ forms.textField({
-    label: 'Some Attribute',
-    instructions: 'Enter some attribute here.',
-    id: 'someAttribute',
-    name: 'someAttribute',
-    value: field['someAttribute']})
+{{ forms.checkboxField({
+    label: 'Show Meta Title',
+    id: 'metaTitle',
+    name: 'metaTitle',
+    value: 1,
+    checked: field['metaTitle']})
+}}
+
+{{ forms.checkboxField({
+    label: 'Show Meta Description',
+    id: 'metaDesc',
+    name: 'metaDesc',
+    value: 1,
+    checked: field['metaDesc']})
+}}
+
+{{ forms.checkboxField({
+    label: 'Show Robots toggle',
+    id: 'metaRobots',
+    name: 'metaRobots',
+    value: 1,
+    checked: field['metaRobots']})
 }}

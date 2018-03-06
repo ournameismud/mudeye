@@ -25,6 +25,6 @@
 return [
 
     // This controls blah blah blah
-    "someAttribute" => true,
-
+    "seoDesc" => true,
+    "trackingCode" => true,
 ];
