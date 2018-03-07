@@ -34,3 +34,42 @@
     errors: settings.getErrors('trackingCode'),
     required: false,
 }) }}
+
+{{ forms.checkboxField({
+    label: 'Show `Site Name` on homepage?',
+    id: 'homeSuffix',
+    name: 'homeSuffix',
+    value: 1,
+    checked: settings['homeSuffix']})
+}}
+
+{% if options|length > 1 %}
+
+    {{ forms.selectField({
+        label: 'SEO Field',
+        id: 'seoField',
+        name: 'seoField',
+        options: options,
+        value: field['seoField'],
+        })
+    }}
+
+{% elseif options|length %}
+
+    {% for key, value in options %}
+
+        {{ forms.textField({
+            label: 'SEO Field',
+            id: 'seoField_visible',
+            name: 'seoField_visible',
+            value: value,
+            readonly: true
+        }) }}
+        <input type="hidden" name="seoField" value="{{ key }}">
+{% endfor %}
+
+{% else %}
+
+    <p class="error">You need to add an SEO Field first</p>
+
+{% endif %}

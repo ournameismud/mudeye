@@ -29,6 +29,8 @@ class Settings extends Model
      * @var string
      */
     public $seoDesc;
+    public $homeSuffix;
+    public $seoField;
     public $trackingCode;
     public $seoSeparator = '|';
 
@@ -41,9 +43,11 @@ class Settings extends Model
     public function rules()
     {
         return [
+            ['homeSuffix', 'boolean'],
             ['seoDesc', 'string'],
             ['trackingCode', 'string'],
-            ['seoSeparator', 'string']
+            ['seoSeparator', 'string'],
+            ['seoField', 'string']
         ];
     }
 }

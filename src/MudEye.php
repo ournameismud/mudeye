@@ -116,10 +116,26 @@ class MudEye extends Plugin
      */
     protected function settingsHtml(): string
     {
+        $fieldsService = Craft::$app->getFields();
+        $fields = array();
+        
+        foreach(Craft::$app->fields->getAllFields() AS $field) {
+            if (get_class($field) == 'ournameismud\mudeye\fields\MudEyeField') {
+                $name = $field->name;
+                $handle = $field->handle;
+                $id = $field->id;
+                $fieldGroup = $fieldsService->getGroupById($field->groupId);
+                $group = $fieldGroup->name;
+                $fields[$handle] = $group . ': ' . $name;
+            }
+        }
+        // craft\records\Field
+        // Craft::dd($fieldsService->getAllFields(['type' => 'ournameismud\mudeye\fields\MudEyeField']));
         return Craft::$app->view->renderTemplate(
             'mud-eye/settings',
             [
-                'settings' => $this->getSettings()
+                'settings' => $this->getSettings(),
+                'options' => $fields
             ]
         );
     }
