@@ -130,7 +130,7 @@ class MudEyeField extends Field
             'mud-eye/_components/fields/MudEyeField_input',
             [
                 'name' => $this->handle,
-                'value' => json_decode($value),
+                'value' => strlen(trim($value)) > 0 ? json_decode($value) : $value,
                 'field' => $this,
                 'id' => $id,
                 'namespacedId' => $namespacedId,

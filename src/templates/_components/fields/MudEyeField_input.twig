@@ -23,7 +23,7 @@
 	    id: id ~ 'seoTitle',
 	    class: 'nicetext',
 	    name: name ~ '[seoTitle]',
-	    value: value.seoTitle is defined ? value.seoTitle,
+	    value: value.seoTitle is defined and value.seoTitle|length ? value.seoTitle,
 	    required: false,
 	}) }}
 {% endif %}
@@ -34,7 +34,7 @@
 	    id: id ~ 'seoDesc',
 	    class: 'nicetext',
 	    name: name ~ '[seoDesc]',
-	    value: value.seoDesc is defined ? value.seoDesc,
+	    value: value.seoDesc is defined and value.seoDesc|length ? value.seoDesc,
 	    required: false,
 	}) }}
 {% endif %}
@@ -46,7 +46,7 @@
 	    class: 'nicetext',
 	    name: name ~ '[seoRobot]',
 	    value: 1,
-	    checked: value.seoRobot is defined ? true: false,
+	    checked: value.seoRobot is defined and value.seoRobot|length ? true: false,
 	    required: false,
 	}) }}
 {% endif %}
