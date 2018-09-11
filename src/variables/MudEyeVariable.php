@@ -54,7 +54,8 @@ class MudEyeVariable
 
         $handle = $this->settings['seoField'];
         
-        if ($element && get_class($element) == 'craft\\elements\\Entry') {
+        if ($element && get_class($element) == 'craft\\elements\\Entry' OR get_class($element) == 'craft\\elements\\Category') {
+            $title = $element->title;
             $title = $element->title;
             $seoFields = json_decode($element->$handle);
             
